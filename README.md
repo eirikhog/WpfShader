@@ -14,4 +14,5 @@ This repository contains the source code for a couple of shaders, and a demo app
 
 ### ASCII Shader
 (This is a fun one!)
+
 ![Reference image](https://raw.githubusercontent.com/eirikhog/WpfShader/master/example/result_ascii.png)
