@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace Effects
@@ -14,7 +10,7 @@ namespace Effects
         {
             Timer timer = new Timer();
             timer.Interval = 1000;
-            timer.Elapsed += timer_Elapsed;
+            timer.Elapsed += TimerElapsed;
             timer.Start();
         }
 
@@ -23,10 +19,9 @@ namespace Effects
             get { return DateTime.Now.ToLongTimeString(); }
         }
 
-        void timer_Elapsed(object sender, ElapsedEventArgs e)
+        void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs("Now"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Now)));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
